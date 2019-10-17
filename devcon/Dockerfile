@@ -17,8 +17,13 @@ RUN cd devcon_demo && rails generate controller Welcome index
 #Add Custom Ruby files for demo website
 COPY ruby_demo_site/routes.rb /devcon/devcon_demo/config/routes.rb
 COPY ruby_demo_site/application.rb /devcon/devcon_demo/config/application.rb
-COPY ruby_demo_site/index.html.erb /devcon/devcon_demo/app/views/welcome/index.html.erb
 COPY ruby_demo_site/start_site.sh /start_site.sh
+COPY ruby_demo_site/media/* /devcon/devcon_demo/public/media/
+
+#COPY ruby_demo_site/index.html.erb.1 /devcon/devcon_demo/app/views/welcome/index.html.erb
+COPY ruby_demo_site/index.html.erb.2 /devcon/devcon_demo/app/views/welcome/index.html.erb
+
+
 RUN chmod +x /start_site.sh
 
 
