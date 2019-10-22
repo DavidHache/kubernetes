@@ -8,6 +8,7 @@ spec:
   ports:
     - name: "demo-page"
       protocol: "TCP"
-      port: 3000
+      port: 80
+      targetPort: "webpage"
       nodePort: 30303
   type: NodePort

@@ -18,5 +18,13 @@ spec:
               image:  registry:2
               ports:
               - containerPort: 5000
+              volumeMounts:
+              - name: docker-images
+                mountPath: /var/lib/registry
 
+            volumes:
+            - name: docker-images
+              hostPath:
+                path: /dockerdata/docker-images
+                type: DirectoryOrCreate
 
