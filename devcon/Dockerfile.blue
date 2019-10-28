@@ -1,0 +1,13 @@
+FROM nginx:latest
+ENV basefolder /
+WORKDIR ${basefolder}
+
+#Change to Blue or Green
+
+
+#Add Custom files for demo website
+COPY nginx_demo_site/media/* /usr/share/nginx/html/media/
+COPY nginx_demo_site/index.html.blue /usr/share/nginx/html/index.html
+COPY nginx_demo_site/start_site.sh /start_site.sh
+RUN chmod +x /start_site.sh
+CMD [ "/start_site.sh" ]
