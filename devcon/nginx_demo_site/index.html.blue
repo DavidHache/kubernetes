@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    <h2 style="font-size:200%;text-align:center;color:rgb(41, 80, 255);">DEBUG - Liferay DXP running on : WEBSERVER</h2>
+    <h2 style="float: left; margin-top: 130px;width: 100%;text-align: center;font-size:25px;color:blue">DEBUG - Liferay DXP running on : WEBSERVER</h2>
     <div id="screen-liferay"></div>
 
 </body>
