@@ -1,2 +1,5 @@
-# kubernetes
-Repo for Kubernetes stuff
+# Kubernetes
+
+Repo for Kubernetes stuff by David Haché
+
+[David Haché](https://www.linkedin.com/in/davidhache)
