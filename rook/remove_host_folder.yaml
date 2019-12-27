@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: delete-local-folder
+  namespace: rook-ceph
+spec:
+  selector:
+    matchLabels:
+      name: delete-local-folder
+  template:
+    metadata:
+      labels:
+        name: delete-local-folder
+    spec:
+      containers:
+      - name: delete-local-folder
+        image: ubuntu
+        command: ["/bin/sh","-c"]
+        args:
+          - rm -rf /var/lib/rook_ceph*;
+            while true; do sleep 30; done;
+        volumeMounts:
+        - mountPath: /var/lib
+          name: lib
+      terminationGracePeriodSeconds: 0
+      volumes:
+        - hostPath:
+            path: /var/lib/
+            type: ""
+          name: lib
+ 

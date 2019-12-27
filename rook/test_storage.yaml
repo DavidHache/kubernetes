@@ -1,0 +1,31 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: ceph-claim
+  namespace: rook-ceph
+spec:
+  storageClassName: rook-ceph-block
+  accessModes:     
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi 
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ceph-pod1  
+  namespace: rook-ceph         
+spec:
+  containers:
+  - name: ceph-busybox
+    image: busybox          
+    command: ["sleep", "60000"]
+    volumeMounts:
+    - name: ceph-vol1       
+      mountPath: /usr/share/busybox 
+      readOnly: false
+  volumes:
+  - name: ceph-vol1         
+    persistentVolumeClaim:
+      claimName: ceph-claim 
